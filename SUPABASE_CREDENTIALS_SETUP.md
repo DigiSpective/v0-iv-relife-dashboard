@@ -6,7 +6,7 @@ This document outlines the steps to ensure the proper Supabase credentials are i
 
 The following Supabase credentials have been configured in the [.env.local](file:///Users/admin/Downloads/ivrelife-nexus-main/.env.local) file:
 
-```env
+\`\`\`env
 # Supabase Credentials
 SUPABASE_URL=https://nzbexzrveeyxuonooyeh.supabase.co
 NEXT_PUBLIC_SUPABASE_URL=https://nzbexzrveeyxuonooyeh.supabase.co
@@ -24,7 +24,7 @@ POSTGRES_DATABASE=postgres
 # Vite environment variables (for client-side)
 VITE_SUPABASE_URL=https://nzbexzrveeyxuonooyeh.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56YmV4enJ2ZWV5eHVvbm9veWVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUzODc3NDUsImV4cCI6MjA3MDk2Mzc0NX0.rzI2aEWJfMZoF3Qzq8PU5D7SocHz85ps5l3ubskHIs4
-```
+\`\`\`
 
 ## Required User Accounts
 
@@ -52,9 +52,9 @@ This will create all necessary tables, indexes, RLS policies, and initial data.
 
 You can verify that the setup is working correctly by running:
 
-```bash
+\`\`\`bash
 npm run verify-supabase
-```
+\`\`\`
 
 This script will check:
 - That the environment variables are properly configured

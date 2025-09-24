@@ -16,7 +16,7 @@ This document summarizes the final status of the Supabase setup and confirms tha
 
 The latest verification (`npm run verify-supabase`) shows:
 
-```
+\`\`\`
 🎉 Database connection is properly configured!
 ✅ Authentication is working
 
@@ -24,7 +24,7 @@ The latest verification (`npm run verify-supabase`) shows:
    1. Start the development server: npm run dev
    2. Visit http://localhost:5173 to access the application
    3. Sign in with admin@iv-relife.com or retailer@iv-relife.com (password: 123456789)
-```
+\`\`\`
 
 ## User Accounts
 
@@ -52,9 +52,9 @@ We've verified that both users can authenticate successfully with the Supabase b
 ## Next Steps
 
 1. **Start the Development Server**:
-   ```bash
+   \`\`\`bash
    npm run dev
-   ```
+   \`\`\`
 
 2. **Access the Application**:
    Visit http://localhost:5173 in your browser

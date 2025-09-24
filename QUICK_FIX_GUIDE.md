@@ -14,7 +14,7 @@ The authentication system now includes automatic migration that will create the 
 2. Navigate to the SQL Editor
 3. Copy and paste the entire contents of `database-setup.sql` 
 4. **Important**: Update the email in the INSERT statement at the bottom:
-   ```sql
+   \`\`\`sql
    -- Change this line to match your actual email
    INSERT INTO users (id, email, name, role, created_at) 
    SELECT 
@@ -26,14 +26,14 @@ The authentication system now includes automatic migration that will create the 
    FROM auth.users 
    WHERE auth.users.email = 'admin@iv-relife.com' -- <-- And this one too
    ON CONFLICT (id) DO NOTHING;
-   ```
+   \`\`\`
 5. Run the SQL script
 
 ### 2. Update User Configuration (If Needed)
 
 If your email is different from the predefined ones, update `src/lib/user-migration.ts`:
 
-```typescript
+\`\`\`typescript
 export const EXISTING_USERS: Record<string, { role: User['role']; name: string }> = {
   'admin@iv-relife.com': {
     role: 'owner',
@@ -45,7 +45,7 @@ export const EXISTING_USERS: Record<string, { role: User['role']; name: string }
   },
   // Add more existing users here as needed
 };
-```
+\`\`\`
 
 ### 3. Test the Login
 
@@ -63,22 +63,22 @@ export const EXISTING_USERS: Record<string, { role: User['role']; name: string }
 ### 4. Verify Success
 
 After logging in, check the browser console. You should see:
-```
+\`\`\`
 User not found in users table, creating record for: admin@iv-relife.com
 Successfully created user record for: admin@iv-relife.com
-```
+\`\`\`
 
 ## Alternative: Manual Migration Tool
 
 If the automatic migration doesn't work, you can use the manual migration tool:
 
 1. Add this route to your `App.tsx` (temporarily for setup):
-   ```tsx
+   \`\`\`tsx
    import { UserMigrationTool } from './components/admin/UserMigrationTool';
    
    // Add this route
    <Route path="/admin/migrate" element={<UserMigrationTool />} />
-   ```
+   \`\`\`
 
 2. Navigate to `/admin/migrate`
 3. Use the "Migrate All Known Users" button or manually enter your user details
@@ -115,9 +115,9 @@ If the automatic migration doesn't work, you can use the manual migration tool:
 3. **Check Row Level Security**:
    - The automatic migration might fail if RLS policies are too restrictive
    - Temporarily disable RLS on the `users` table for testing:
-     ```sql
+     \`\`\`sql
      ALTER TABLE users DISABLE ROW LEVEL SECURITY;
-     ```
+     \`\`\`
    - Re-enable after confirming the migration works
 
 4. **Check browser console**:
@@ -128,7 +128,7 @@ If the automatic migration doesn't work, you can use the manual migration tool:
 
 1. Use the manual migration tool at `/admin/migrate`
 2. Or manually insert the user record in SQL:
-   ```sql
+   \`\`\`sql
    INSERT INTO users (id, email, name, role) 
    VALUES (
      (SELECT id FROM auth.users WHERE email = 'your-email@domain.com'),
@@ -136,7 +136,7 @@ If the automatic migration doesn't work, you can use the manual migration tool:
      'Your Name',
      'owner'
    );
-   ```
+   \`\`\`
 
 ## Security Note
 

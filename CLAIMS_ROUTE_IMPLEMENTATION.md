@@ -162,7 +162,7 @@ The claims system exposes the following API endpoints:
 
 The following environment variables are required:
 
-```env
+\`\`\`env
 # Supabase
 VITE_SUPABASE_URL=your_supabase_url
 VITE_SUPABASE_ANON_KEY=your_anon_key
@@ -175,4 +175,4 @@ RESEND_API_KEY=your_resend_api_key
 TWILIO_ACCOUNT_SID=your_twilio_account_sid
 TWILIO_AUTH_TOKEN=your_twilio_auth_token
 TWILIO_PHONE_NUMBER=your_twilio_phone_number
-```
+\`\`\`

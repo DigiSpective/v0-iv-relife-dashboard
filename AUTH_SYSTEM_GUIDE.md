@@ -44,7 +44,7 @@ The authentication system is built with:
 
 ## File Structure
 
-```
+\`\`\`
 src/
 ├── components/
 │   ├── auth/
@@ -81,7 +81,7 @@ src/
 │   └── Login.tsx                 # Legacy redirect
 └── types/
     └── index.ts                  # Enhanced with auth types
-```
+\`\`\`
 
 ## Quick Start
 
@@ -89,16 +89,16 @@ src/
 
 Create a `.env.local` file with your Supabase credentials:
 
-```env
+\`\`\`env
 VITE_SUPABASE_URL=your-supabase-url
 VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
-```
+\`\`\`
 
 ### 2. Database Schema
 
 The system requires these database tables (already defined in types):
 
-```sql
+\`\`\`sql
 -- Users table
 CREATE TABLE users (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -149,11 +149,11 @@ CREATE TABLE outbox (
   last_error text,
   created_at timestamptz DEFAULT now()
 );
-```
+\`\`\`
 
 ### 3. Setup Row Level Security (RLS)
 
-```sql
+\`\`\`sql
 -- Enable RLS
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;
 ALTER TABLE audit_logs ENABLE ROW LEVEL SECURITY;
@@ -175,13 +175,13 @@ CREATE POLICY "Owners can view all users" ON users
   );
 
 -- Similar policies for other tables...
-```
+\`\`\`
 
 ### 4. Application Setup
 
 Wrap your app with the AuthProvider:
 
-```tsx
+\`\`\`tsx
 import { AuthProvider } from '@/hooks/useAuth';
 
 function App() {
@@ -191,13 +191,13 @@ function App() {
     </AuthProvider>
   );
 }
-```
+\`\`\`
 
 ## Usage Examples
 
 ### Basic Authentication
 
-```tsx
+\`\`\`tsx
 import { useAuth } from '@/hooks/useAuth';
 
 function LoginComponent() {
@@ -214,11 +214,11 @@ function LoginComponent() {
     // Your login form
   );
 }
-```
+\`\`\`
 
 ### Role-Based Access Control
 
-```tsx
+\`\`\`tsx
 import { useRole } from '@/hooks/useAuth';
 
 function AdminComponent() {
@@ -230,11 +230,11 @@ function AdminComponent() {
 
   return <div>Admin content</div>;
 }
-```
+\`\`\`
 
 ### Route Protection
 
-```tsx
+\`\`\`tsx
 import { AuthGuard } from '@/components/layout/AuthGuard';
 
 <Route 
@@ -245,11 +245,11 @@ import { AuthGuard } from '@/components/layout/AuthGuard';
     </AuthGuard>
   } 
 />
-```
+\`\`\`
 
 ### Audit Logging
 
-```tsx
+\`\`\`tsx
 import { useAuditLogger } from '@/hooks/useAuditLogger';
 
 function UserComponent() {
@@ -263,7 +263,7 @@ function UserComponent() {
     await logAction('profile_update', 'users', userId, data);
   };
 }
-```
+\`\`\`
 
 ## Testing
 
@@ -271,25 +271,25 @@ function UserComponent() {
 
 Access the built-in test runner at `/testing/auth` (in development):
 
-```tsx
+\`\`\`tsx
 import { AuthTestRunner } from '@/components/testing/AuthTestRunner';
 
 // Add to your router for testing
 <Route path="/testing/auth" element={<AuthTestRunner />} />
-```
+\`\`\`
 
 ### Test Credentials (Demo Mode)
 
 When Supabase is not configured, use these demo credentials:
 
-```
+\`\`\`
 Email: admin@ivrelife.com
 Password: admin123
-```
+\`\`\`
 
 ### Automated Testing
 
-```tsx
+\`\`\`tsx
 import { AUTH_TEST_SCENARIOS, validateTestEnvironment } from '@/lib/auth-test-utils';
 
 // Run environment validation
@@ -299,7 +299,7 @@ const envCheck = validateTestEnvironment();
 for (const scenario of AUTH_TEST_SCENARIOS) {
   // Run test based on scenario.steps
 }
-```
+\`\`\`
 
 ## Configuration
 
@@ -307,7 +307,7 @@ for (const scenario of AUTH_TEST_SCENARIOS) {
 
 Configure dashboard redirects in `getRoleBasedRedirect()`:
 
-```tsx
+\`\`\`tsx
 export const getRoleBasedRedirect = (role: User['role']): string => {
   switch (role) {
     case 'owner':
@@ -322,25 +322,25 @@ export const getRoleBasedRedirect = (role: User['role']): string => {
       return '/dashboard';
   }
 };
-```
+\`\`\`
 
 ### Session Configuration
 
 Modify session timeouts in `session-manager.ts`:
 
-```tsx
+\`\`\`tsx
 // Session timeout (24 hours)
 const SESSION_TIMEOUT = 24 * 60 * 60 * 1000;
 
 // Activity timeout (30 minutes)
 const ACTIVITY_TIMEOUT = 30 * 60 * 1000;
-```
+\`\`\`
 
 ### Navigation Permissions
 
 Update route permissions in the existing `navigationPermissions` object:
 
-```tsx
+\`\`\`tsx
 export const navigationPermissions = {
   dashboard: ['owner', 'backoffice', 'retailer', 'location_user'],
   orders: ['owner', 'backoffice', 'retailer', 'location_user'],
@@ -352,7 +352,7 @@ export const navigationPermissions = {
   retailers: ['owner', 'backoffice'],
   settings: ['owner', 'backoffice', 'retailer']
 };
-```
+\`\`\`
 
 ## Security Best Practices
 
@@ -390,10 +390,10 @@ export const navigationPermissions = {
 - Set up database backups
 
 ### 2. Environment Variables
-```env
+\`\`\`env
 VITE_SUPABASE_URL=https://your-prod-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your-production-anon-key
-```
+\`\`\`
 
 ### 3. Domain Configuration
 - Configure auth redirects for your domain
@@ -433,7 +433,7 @@ VITE_SUPABASE_ANON_KEY=your-production-anon-key
 
 Enable debug logging by setting:
 
-```tsx
+\`\`\`tsx
 // In your main component
 useEffect(() => {
   if (import.meta.env.DEV) {
@@ -441,7 +441,7 @@ useEffect(() => {
     // Additional debug setup
   }
 }, []);
-```
+\`\`\`
 
 ## API Reference
 
@@ -450,7 +450,7 @@ useEffect(() => {
 #### `useAuth()`
 Main authentication hook providing auth state and actions.
 
-```tsx
+\`\`\`tsx
 const {
   user,           // Current user object
   session,        // Current session
@@ -463,12 +463,12 @@ const {
   clearError,     // Clear error state
   refreshUser     // Refresh user data
 } = useAuth();
-```
+\`\`\`
 
 #### `useRole()`
 Role-based access control utilities.
 
-```tsx
+\`\`\`tsx
 const {
   user,                  // Current user
   hasRole,               // Check single role
@@ -477,19 +477,19 @@ const {
   canAccessLocation,    // Location access check
   getRoleRedirect       // Get redirect URL for role
 } = useRole();
-```
+\`\`\`
 
 #### `useAuthStatus()`
 Authentication status utilities.
 
-```tsx
+\`\`\`tsx
 const {
   isAuthenticated,     // Is user logged in
   isUnauthenticated,  // Is user not logged in
   isLoading,          // Is auth state loading
   user                // Current user
 } = useAuthStatus();
-```
+\`\`\`
 
 ### Server Actions
 

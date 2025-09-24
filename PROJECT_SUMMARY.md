@@ -115,7 +115,7 @@ The system includes comprehensive database schemas for all modules:
 - Environment variables for API keys and secrets
 
 ## File Structure
-```
+\`\`\`
 .
 ├── public/
 ├── sql/                    # Database schemas and RLS policies
@@ -128,7 +128,7 @@ The system includes comprehensive database schemas for all modules:
 ├── supabase/
 │   └── functions/         # Edge Functions
 └── tests/                 # Integration and unit tests
-```
+\`\`\`
 
 ## Future Enhancements
 1. Advanced analytics and reporting dashboards

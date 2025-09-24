@@ -47,9 +47,9 @@ This will create:
 
 Run the verification script to ensure everything is configured correctly:
 
-```bash
+\`\`\`bash
 npm run verify-supabase
-```
+\`\`\`
 
 This script will check:
 - Environment variables are properly set
@@ -60,11 +60,11 @@ This script will check:
 
 1. Register a new user through the application
 2. In Supabase SQL Editor, run:
-   ```sql
+   \`\`\`sql
    UPDATE public.users 
    SET role = 'owner' 
    WHERE email = 'your-admin-email@example.com';
-   ```
+   \`\`\`
 
 ## Resetting the Database
 
@@ -80,10 +80,10 @@ Alternatively, you can run `fresh-setup.sql` which will run all the necessary sc
 
 Make sure your `.env.local` file includes:
 
-```env
+\`\`\`env
 VITE_SUPABASE_URL=your_supabase_project_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
+\`\`\`
 
 ## Troubleshooting
 

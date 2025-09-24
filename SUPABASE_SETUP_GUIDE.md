@@ -33,18 +33,18 @@ Once your project is created:
 
 Create a `.env.local` file in the root of your project with the following content:
 
-```env
+\`\`\`env
 VITE_SUPABASE_URL=your_project_url_here
 VITE_SUPABASE_ANON_KEY=your_anon_key_here
-```
+\`\`\`
 
 Replace `your_project_url_here` and `your_anon_key_here` with the values you copied from the Supabase dashboard.
 
 Example:
-```env
+\`\`\`env
 VITE_SUPABASE_URL=https://your-project-id.supabase.co
 VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlvdXItcHJvamVjdC1pZCIsInJvbGUiOiJhbm9uIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE4MzE4MjMwMjJ9.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
+\`\`\`
 
 ## Step 4: Set Up the Database Schema
 
@@ -79,14 +79,14 @@ The project uses email/password authentication. By default, Supabase allows emai
 ## Step 6: Test the Setup
 
 1. Install dependencies if you haven't already:
-   ```bash
+   \`\`\`bash
    npm install
-   ```
+   \`\`\`
 
 2. Start the development server:
-   ```bash
+   \`\`\`bash
    npm run dev
-   ```
+   \`\`\`
 
 3. Visit `http://localhost:5173` in your browser
 4. Try navigating to the login page and creating an account
@@ -97,11 +97,11 @@ To create an admin user:
 
 1. Register a new user through the app login page
 2. In the Supabase SQL Editor, run this query to make the user an owner:
-   ```sql
+   \`\`\`sql
    UPDATE public.users 
    SET role = 'owner' 
    WHERE email = 'your-admin-email@example.com';
-   ```
+   \`\`\`
 
 ## Troubleshooting
 

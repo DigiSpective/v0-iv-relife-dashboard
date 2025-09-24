@@ -47,7 +47,7 @@ This document summarizes the implementation of the fully functional `/products` 
 
 ## File Structure
 
-```
+\`\`\`
 src/
 ├── components/
 │   └── products/
@@ -64,7 +64,7 @@ src/
 │   └── services.ts (enhanced)
 └── pages/
     └── ProductsEnhanced.tsx
-```
+\`\`\`
 
 ## Key Functionality
 

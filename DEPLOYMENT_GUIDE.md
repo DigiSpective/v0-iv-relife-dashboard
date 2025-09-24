@@ -14,10 +14,10 @@ This application is configured for deployment on Vercel with the following setup
 
 Set these environment variables in your Vercel project settings:
 
-```bash
+\`\`\`bash
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key-here
-```
+\`\`\`
 
 ### Deployment Steps
 
@@ -42,7 +42,7 @@ VITE_SUPABASE_ANON_KEY=your-anon-key-here
 
 The `vercel.json` file is already configured to handle React Router properly:
 
-```json
+\`\`\`json
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
@@ -56,7 +56,7 @@ The `vercel.json` file is already configured to handle React Router properly:
     }
   ]
 }
-```
+\`\`\`
 
 This configuration:
 - Serves static files normally

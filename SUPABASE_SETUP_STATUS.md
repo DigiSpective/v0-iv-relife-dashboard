@@ -46,9 +46,9 @@ Run the [fixed-database-setup.sql](file:///Users/admin/Downloads/ivrelife-nexus-
 
 After running the database script, verify that everything is working:
 
-```bash
+\`\`\`bash
 npm run verify-supabase
-```
+\`\`\`
 
 This should now pass both database connection and authentication tests.
 
